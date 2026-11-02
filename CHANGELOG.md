@@ -7,3 +7,4 @@
 - Use Bun's built-in test runner with 90% line and function coverage; omit statement/branch thresholds and remove Vitest.
 - Migrate Biome configuration to 2.6.4 without relaxing rules and deny dependency lifecycle scripts with an empty trust list.
 - Adapt GitHub Actions and the unprivileged production container to Bun; pin actions to the latest release commits.
+- Compile the TypeScript Danger policy with Bun before running it, since Danger's TypeScript loader requires a compiler API removed in TypeScript 7.
