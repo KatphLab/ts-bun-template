@@ -1,13 +1,13 @@
 ## Workflow
 
 - Use Bun only for package management and repository scripts: `bun install`, `bun run <script>`, and `bunx --no-install <tool>`.
-- Use `bun run test`, not `bun test`: Vitest supplies the strict reporter and per-file coverage policy and runs on Node.js.
+- Use Bun's built-in test runner; `bun run test:ci` enforces line and function coverage.
 - Work on a descriptive feature branch rather than `main`; use `.worktrees/` for isolated worktrees.
 - Use focused `<type>(<scope>): <why>` commits.
 
 ## Protected tooling
 
-Ask the user before modifying quality-gate configuration: `.dependency-cruiser.ts`, `.jscpd.json`, `biome.json`, `.semgrep.yml`, `knip.json`, `tsconfig.json`, and `vitest.*.ts`. Fix findings in code rather than weakening or bypassing checks.
+Ask the user before modifying quality-gate configuration: `.dependency-cruiser.ts`, `.jscpd.json`, `biome.json`, `.semgrep.yml`, `knip.json`, `tsconfig.json`, and `bunfig.toml`. Fix findings in code rather than weakening or bypassing checks.
 
 ## Implementation
 
@@ -23,5 +23,5 @@ Ask the user before modifying quality-gate configuration: `.dependency-cruiser.t
 
 - Cover changed behavior, state transitions, contracts, and reachable errors.
 - Run targeted verification and `bun run check` before claiming completion.
-- Preserve all strict gates inherited from the PNPM template, including 90% per-file coverage and rejection of skipped/todo tests.
+- Preserve 90% line and function coverage and the inherited static-analysis gates. Biome rejects focused/skipped tests; Semgrep rejects todo tests.
 - Semgrep runs separately in CI; run `semgrep scan --config .semgrep.yml --error .` locally when security rules or affected code change.

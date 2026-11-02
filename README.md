@@ -4,7 +4,7 @@ Strict TypeScript starter using Bun and Biome, based on [KatphLab/ts-pnpm-templa
 
 ## Getting started
 
-Requires Bun 1.4.4 or newer and Node.js 26 for the development tooling. The application runs on Bun; Vitest uses Node.js for its V8 coverage runner.
+Requires Bun 1.4.4 or newer and Node.js 26 for the static-analysis tooling. The application and tests run on Bun, using its built-in test runner.
 
 Use GitHub's **Use this template** button, then:
 
@@ -24,9 +24,9 @@ bun run dev
 | `bun run lint`          | Biome formatting, linting, and import checks; warnings fail  |
 | `bun run fix`           | Apply Biome fixes, then Knip fixes                           |
 | `bun run typecheck`     | Strict TypeScript checking without emitting files            |
-| `bun run test`          | Run Vitest; do not substitute `bun test`                     |
-| `bun run test:watch`    | Watch tests with Vitest                                      |
-| `bun run test:ci`       | Run Vitest with per-file coverage gates                      |
+| `bun run test`          | Run Bun's built-in test runner                               |
+| `bun run test:watch`    | Watch tests with Bun                                         |
+| `bun run test:ci`       | Run Bun tests with line and function coverage gates          |
 | `bun run test:coverage` | Run tests and generate text/LCOV coverage                    |
 | `bun run depcruise`     | Enforce dependency and architecture boundaries               |
 | `bun run knip`          | Detect unused files, exports, and dependencies               |
@@ -40,7 +40,7 @@ The PNPM template's TypeScript strictness, Biome rules and test exceptions, depe
 
 - TypeScript enables strict checking, exact optional properties, unchecked indexed-access checks, unused-local/parameter checks, exhaustive returns, and switch fallthrough restrictions.
 - Biome enforces cognitive complexity 12, function length 80, at most seven parameters, promise/type-safety rules, restricted console calls and parent-relative imports, formatting, and organized imports.
-- Vitest requires **90% per file** for statements, branches, functions, and lines. Focused tests, skipped tests, todo tests, and empty test suites fail.
+- Bun's built-in test runner requires **90% line and function coverage** and fails when no tests are found. Statement and branch coverage thresholds are intentionally omitted. Biome rejects focused/skipped tests, and Semgrep rejects todo tests in CI.
 - Dependency-cruiser rejects cycles, undeclared/unresolved dependencies, imports of tests, and production runtime imports of dev dependencies. SWC parses TypeScript source.
 - Semgrep scans OWASP Top 10, Node.js, TypeScript, secrets, and the inherited custom rules. It runs separately from `bun run check`:
 

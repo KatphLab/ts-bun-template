@@ -69,5 +69,3 @@ rules:
     message: Do not leave todo tests.
     languages: [typescript]
     severity: ERROR
-    paths:
-      exclude: ["**/*.test.ts"]

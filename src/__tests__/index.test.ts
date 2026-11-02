@@ -1,12 +1,11 @@
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it, spyOn } from 'bun:test'
 
 describe('index', () => {
   it('writes greeting and farewell to stdout', async () => {
-    const writeSpy = vi
-      .spyOn(process.stdout, 'write')
-      .mockImplementation(() => true)
+    const writeSpy = spyOn(process.stdout, 'write').mockImplementation(
+      () => true,
+    )
 
-    vi.resetModules()
     await import('../index.js')
 
     expect(writeSpy).toHaveBeenCalledTimes(2)
