@@ -4,6 +4,8 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     # Keep version updates patch-only for production and development dependencies.
     allow:
       - dependency-type: all
