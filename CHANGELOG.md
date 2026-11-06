@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-06
+
+- Enable weekly Dependabot pull requests for patch-only updates to all production and development packages using the native Bun ecosystem.
+- Wait seven days after a package release before proposing version updates, satisfying the Semgrep cooldown policy without changing the weekly patch-only schedule.
+- Leave dependency versions unchanged in this setup; updates require review and merging.
+
 ## 2026-11-02
 
 - Create the Bun/TypeScript template from `ts-pnpm-template`, retaining its strict TypeScript, Biome, dependency-cruiser, Knip, jscpd, Semgrep, Danger, and Git-hook checks.
