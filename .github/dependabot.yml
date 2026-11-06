@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: bun
+    directory: /
+    schedule:
+      interval: weekly
+    # Keep version updates patch-only for production and development dependencies.
+    allow:
+      - dependency-type: all
+        update-types:
+          - version-update:semver-patch
