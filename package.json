@@ -30,7 +30,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.6.8",
     "@swc/core": "^1.16.22",
-    "@types/bun": "^1.4.4",
+    "@types/bun": "^1.4.5",
     "@types/node": "^26.6.6",
     "danger": "^14.1.0",
     "dependency-cruiser": "^18.7.2",
